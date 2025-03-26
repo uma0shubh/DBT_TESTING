@@ -2,9 +2,9 @@ with customers as (select * from {{ ref('stg_jaffle_shop__customers') }}),
 
 orders as ( select * from {{ ref('stg_jaffle_shop__orders') }}),
 
-items as ( select * from {{ ref('stg_jaffle_shop__items') }}),
+items as ( select * from {{ ref('stg_stripe__items') }}),
 
-supplies as ( select * from {{ ref('stg_jaffle_shop__supplies') }}),
+supplies as ( select * from {{ ref('stg_stripe__supplies') }}),
 
 customer_orders as (
     select
