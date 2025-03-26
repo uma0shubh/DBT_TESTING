@@ -1,1 +1,2 @@
-SELECT * FROM `dbt-test-454905.dbt_uma0shubh.customers`;
+SELECT string_field_0
+FROM dbt_uma0shubh.customers;
