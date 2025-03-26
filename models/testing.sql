@@ -1,0 +1,1 @@
+SELECT * FROM `dbt-test-454905.dbt_uma0shubh.customers`;
