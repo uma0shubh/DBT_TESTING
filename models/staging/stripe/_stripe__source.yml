@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: jaffle_shop
+  - name: stripe
     database: dbt-test-454905
     schema: jaffle_shop
     

@@ -1,6 +1,6 @@
 version: 2
 
-# write a name of the folder in name under sources
+# Sources represent the raw data that is loaded into the data warehouse.
 sources:
   - name: jaffle_shop
     database: dbt-test-454905
