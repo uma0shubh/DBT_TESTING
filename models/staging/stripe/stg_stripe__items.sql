@@ -2,4 +2,4 @@ select
     order_id,
     sku as product
 
-from jaffle_shop.items
+from {{ source('jaffle_shop', 'items') }}
