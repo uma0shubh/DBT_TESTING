@@ -1,9 +1,13 @@
 {% docs customer_table %}
 
-Column Name	Description
-EMP_ID	Unique employee ID
-PROJ_ID	ID of the project to which consultant is assigned.
-START_DATE	Date employee was assigned to the project.
-END_DATE	Date employee completed work on the project.
+<!-- to run "dbt docs generate" -->
+
+| status         | definition                                       |
+|----------------|--------------------------------------------------|
+| placed         | Order placed, not yet shipped                    |
+| shipped        | Order has been shipped, not yet been delivered   |
+| completed      | Order has been received by customers             |
+| return pending | Customer indicated they want to return this item |
+| returned       | Item has been returned                           |
 
 {% enddocs %}
