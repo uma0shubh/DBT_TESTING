@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: my_first_yml
+    database: dbt-test-454905
+    schema: jaffle_shop
+    tables:
+      - name: customers
+      - name: orders

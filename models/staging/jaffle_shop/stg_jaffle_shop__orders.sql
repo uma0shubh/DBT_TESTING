@@ -4,4 +4,4 @@ select
     ordered_at as order_date,
     order_total
 
-from jaffle_shop.orders
+from {{ source('jaffle_shop', 'orders') }}
