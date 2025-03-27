@@ -1,0 +1,33 @@
+version: 2
+
+# to run "dbt test --select stg_jaffle_shop__customers" or "dbt test --select stg_jaffle_shop__orders"
+# "dbt build --select +dim_customers_org" to 1st apply test and then if pass then run the upstream models
+models:
+  - name: stg_jaffle_shop__customers
+    description: one unique customer per row
+    columns:
+      - name: customer_id
+        description: primary key
+        tests:
+          - unique
+          - not_null
+  
+  - name: stg_jaffle_shop__orders
+    description: one order per row
+    columns:
+      - name: order_id
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "{{doc('customer_table')}}"
+        tests:
+          - relationships:
+              field: customer_id
+              to: ref('stg_jaffle_shop__customers')
+          - accepted_values:
+              # values: ['545b7872-c4e0-4687-8b2f-1d13c03ca2ab', 'a1d0024c-8d49-47f7-99b3-14c942239ebf']
+              values:
+                - 545b7872-c4e0-4687-8b2f-1d13c03ca2ab
+                - a1d0024c-8d49-47f7-99b3-14c942239ebf

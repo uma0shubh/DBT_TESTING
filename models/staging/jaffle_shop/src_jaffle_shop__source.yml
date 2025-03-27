@@ -1,0 +1,35 @@
+version: 2
+
+# to run test "dbt test --select source:jaffle_shop"
+# Sources represent the raw data that is loaded into the data warehouse.
+sources:
+  - name: jaffle_shop
+    description: a clone of BQ apllication DB
+    database: dbt-test-454905
+    schema: jaffle_shop
+    freshness: 
+      warn_after: {count: 360, period: day}
+      error_after: {count: 3200, period: day}
+    loaded_at_field: ordered_at
+    ## use "dbt source freshness" to check freshness
+    
+    
+    tables:
+      - name: customers
+        description: raw customer data
+        freshness: null
+        columns:
+          - name: id
+            description: primary key for customers data
+            tests:
+              - unique
+              - not_null        
+      
+      - name: orders
+        description: raw orders data
+        # we can write freshness at table level as well
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
