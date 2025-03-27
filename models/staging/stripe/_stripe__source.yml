@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: dbt-test-454905
+    schema: jaffle_shop
+    
+    tables:
+      - name: stores
+        loaded_at_field: opened_at
+        freshness:
+          warn_after: {count: 2250, period: day}
+          error_after: {count: 2300, period: day}
+      - name: items
