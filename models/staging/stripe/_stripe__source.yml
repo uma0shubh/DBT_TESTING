@@ -1,0 +1,16 @@
+version: 2
+
+# write a name of the folder in name under sources
+sources:
+  - name: stripe
+    database: dbt-test-454905
+    schema: jaffle_shop
+    # freshness: 
+    #   warn_after: {count: 360, period: day}
+    #   error_after: {count: 3200, period: day}
+    # loaded_at_field: ordered_at
+    # ## use "dbt source freshness" to check freshness
+    
+    tables:
+      - name: items
+      - name: stores

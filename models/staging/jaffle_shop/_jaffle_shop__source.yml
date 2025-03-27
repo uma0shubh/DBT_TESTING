@@ -1,9 +1,18 @@
 version: 2
 
+# write a name of the folder in name under sources
 sources:
-  - name: my_first_yml
+  - name: jaffle_shop
     database: dbt-test-454905
     schema: jaffle_shop
+    freshness: 
+      warn_after: {count: 360, period: day}
+      error_after: {count: 3200, period: day}
+    loaded_at_field: ordered_at
+    ## use "dbt source freshness" to check freshness
+    
     tables:
       - name: customers
+        freshness: null        
       - name: orders
+        # we can write freshness at table level as well
